@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react'),
-	ReactDOM = require('react-dom'),
-	Homepage = require('./components/homepage.jsx');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Homepage from './components/homepage.jsx';
 
 ReactDOM.render(
 	<Homepage />,

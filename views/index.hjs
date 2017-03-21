@@ -2,7 +2,8 @@
 <html>
 <head>
 	<title>{{title}}</title>
-	<link rel="stylesheet" href="/stylesheets/component.css">
+	<link rel="stylesheet" href="/stylesheets/random.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
 </head>
 <body>
 	<div id="app"></div>
