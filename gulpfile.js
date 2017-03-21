@@ -9,14 +9,15 @@ var browserify = require('browserify'),
 	babelify = require('babelify'),
 	runSequence = require('run-sequence'),
 	source = require('vinyl-source-stream'),
-
+	less = require('gulp-less'),
+	path = require('path'),
 	config = {
 		port: process.env.PORT || 1991,
 		devBaseUrl: 'http://localhost',
 		paths: {
 			html: './views/*.hjs',
 			react: ['./src/**/*.jsx', './src/**/*.js'],
-			css: './public/stylesheets/**/*.css',
+			less: './assets/less/**/*.less',
 			dist: './dist',
 			homeJSX: './src/home.jsx'
 		}
@@ -31,7 +32,7 @@ gulp.task('html', function() {
 	browserSync.reload();
 });
 
-gulp.task('jsx2', function() {
+gulp.task('jsx', function() {
 	console.log('JSX files have been changed... Reloading...');
 	browserify(config.paths.homeJSX)
 		.transform("babelify", {presets: ["es2015", "react"]})
@@ -49,13 +50,13 @@ gulp.task('lint', function() {
 		.pipe(eslint.format());
 });
 
-gulp.task('css', function() {
-	console.log('CSS files have been changed... Reloading...');
-	gulp.src(config.paths.css)
-		.pipe(concat('bundle.css'))
+gulp.task('less', function () {
+	return gulp.src(config.paths.less)
+		.pipe(less({ paths: [path.join(__dirname, 'less', 'includes')] }))
 		.pipe(gulp.dest('./public/stylesheets/'))
-		.pipe(browserSync.stream({match: '**/*.css'}));
+		.pipe(browserSync.stream({match: '**/*.less'}));
 });
+
 
 /*
  * Use it
@@ -87,13 +88,13 @@ gulp.task('watch', function() {
 		reloadDebounce: 100
 	});
 	gulp.watch(config.paths.html, ['html']);
-	gulp.watch(config.paths.css, ['css']);
-	gulp.watch(config.paths.react, ['jsx2']);
+	gulp.watch(config.paths.less, ['less']);
+	gulp.watch(config.paths.react, ['jsx']);
 });
 
 gulp.task('doDev', function() {
 	runSequence(['node', 'watch']);
 });
 
-gulp.task('dev', ['lint', 'jsx2', 'css', 'doDev']);
-gulp.task('default', ['jsx2', 'css', 'node']);
+gulp.task('dev', ['lint', 'jsx', 'less', 'doDev']);
+gulp.task('default', ['jsx', 'less', 'node']);
