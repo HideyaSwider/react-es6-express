@@ -1,0 +1,47 @@
+{
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-trailing-spaces": 1,
+    "eol-last": 1,
+    "no-unused-vars": 1,
+    "no-underscore-dangle": 1,
+    "no-alert": 1,
+    "no-lone-blocks": 1,
+    "no-console": 1,
+    "no-extra-semi": 1,
+    "no-irregular-whitespace": 1,
+    "default-case": 1,
+    "no-multi-spaces": 1,
+    "array-bracket-spacing": 1,
+    "dot-location": [1, "property"],
+    "indent": [1, "tab", {"SwitchCase": 1}],
+    "max-len": [1, 130, 4],
+    "no-extra-parens": [1, "functions"],
+    "object-curly-spacing": [1, "always", {
+      "objectsInObjects": false,
+      "arraysInObjects": true
+    }]
+  },
+  "globals": {
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "15.0"
+    }
+  }
+}

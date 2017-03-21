@@ -1,0 +1,9 @@
+# Dependency directory
+node_modules
+
+# Generated content
+dist
+
+.DS_Store
+npm-debug.log
+public/stylesheets/bundle.css
