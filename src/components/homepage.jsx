@@ -1,20 +1,20 @@
 'use strict';
 
-var React = require('react');
-import ComponentES6 from './componentES6.jsx';
-import Component from './component.jsx';
+import React, { Component } from 'react';
+import RandomES6 from './randomES6.jsx';
+import RandomES4 from './randomES4.jsx';
 
-var Home = React.createClass({
+export default class Home extends Component {
+	constructor (props) {
+		super(props);
+	}
 
-	render: function() {
+	render() {
 		return(
 			<div className="homepage">
-				<h1>ES6</h1>
-				<Component title="Hideya" likes={102} />
-				<ComponentES6 title="Hideya ES6" likes={122} />
+				<RandomES4 title="ES4" />
+				<RandomES6 title="ES6" />
 			</div>
 		);
 	}
-});
-
-module.exports = Home;
+}
