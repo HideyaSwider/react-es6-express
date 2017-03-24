@@ -1,5 +1,5 @@
 {
-  "name": "expressreactes6",
+  "name": "react-es6-express",
   "version": "1.0.0",
   "description": "Express React ES6 Reflux LESS HBS Gulp Bable",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HideyaBenAbderrahmen"
+    "url": "git+https://github.com/HideyaBenAbderrahmen/react-es6-express"
   },
   "author": "hideya",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HideyaBenAbderrahmen"
+    "url": "https://github.com/HideyaBenAbderrahmen/react-es6-express"
   },
-  "homepage": "https://github.com/HideyaBenAbderrahmen",
+  "homepage": "https://github.com/HideyaBenAbderrahmen/",
   "dependencies": {
     "babel-cli": "^6.24.0",
     "babel-eslint": "^7.2.0",
